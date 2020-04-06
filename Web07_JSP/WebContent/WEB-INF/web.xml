@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>Web07_JSP</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 파일 경로 설정 -->
+  <!-- 실제 파일이 저장될 경로 -->
+  <context-param>
+  	<param-name>file-upload</param-name>
+  	<param-value>C:\Study\WebClass\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Web07_JSP\images</param-value>
+  </context-param>
+  
+  <!-- 파일이 표시될 상대 경로 -->
+  <context-param>
+  	<param-name>file-relative</param-name>
+  	<param-value>C:\Study\WebClass\Web07_JSP\WebContent\images</param-value>
+  </context-param>
+  
+  <!-- 필터 설정 -->
+  <filter>
+  	<filter-name>TestFilter</filter-name> <!-- Filter-mapping의 filter-name과 일치해야함 -->
+  	<filter-class>edu.web.jsp02.TestFilter</filter-class>
+  	<init-param>
+  		<param-name>test-param</param-name>
+  		<param-value>Filter Test</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>TestFilter</filter-name>
+  	<url-pattern>/17_filter_test.jsp</url-pattern>
+  	<url-pattern>/*</url-pattern> <!-- *은 존재하는 모든 하위 경로 -->
+  </filter-mapping>
+  
+</web-app>
